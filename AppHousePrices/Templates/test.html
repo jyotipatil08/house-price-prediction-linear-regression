@@ -1,0 +1,311 @@
+ {% extends 'base.html'%}
+    {% block content%}
+
+    {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+
+
+<div style="background: url('/media/img/images/dhome.jpg');background-repeat:no-repeat;background-size: cover;color: white;">
+<br>
+<br>
+<br>
+<div class="container" style="background-color: white;width: 60%;-webkit-box-shadow: 0 0 5px 5px #b5adad;-moz-box-shadow: 0 0 5px 5px #b5adad; box-shadow: 0 0 5px 5px #b5adad; " >
+  <center>
+  <div>
+    <h2 style="color: #449898">Check For Diabetes</h2>
+
+    <hr>
+    <p style="color: #449898">*Kindly fill all the details given below</p>
+    <br>
+  </div>
+  </center> 
+     
+ 
+
+  <div class="form-row">
+    <div class="col-md-4 text-center "style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Pregnancies</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <input type="number" class="form-control" name="Pregnancies" id="Pregnancies" placeholder="Number of Pregnancies" value="" required>
+    </div>
+  </div>
+
+  <br> <br> 
+
+  <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Glucose</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <input type="number" class="form-control" name="Glucose" id="Glucose" placeholder="Glucose" value="" required>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+ 
+  <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">BloodPressure</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <input type="number" class="form-control" name="BloodPressure" id="BloodPressure" placeholder="BloodPressure" value="" required>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+  <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">SkinThickness</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <input type="number" class="form-control" name="SkinThickness" id="SkinThickness" placeholder="SkinThickness" value="" required>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+  <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Insulin</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <input type="number" class="form-control" name="Insulin" id="Insulin" placeholder="Insulin" value="" required>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+  <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">BMI</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <input type="number" class="form-control" name="BMI" id="BMI" placeholder="BMI" value="" required>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+  <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Diabetes pedigree</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <input type="number" class="form-control" name="Diabetespedigree" id="Diabetespedigree" placeholder="Diabetes Pedigree" value="" required>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+  <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Age</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <input type="number" class="form-control" name="Age" id="Age" placeholder="Age" value="" required>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+
+
+
+
+  <center>
+
+    <div class="col-md-12">
+         <br>
+         <input type="button" class="btn btn-primary" name="" value="Anaylze" onclick="validate()">
+    <br>  <br>  <br>
+</div>
+</center>
+
+
+<center>
+  <div id="resultdiv" style="display: none">
+      <h2 style="color: #449898"> Answer : <label id="result"></label> </h2>
+  </div>
+</center>
+
+  <br>
+
+  <center>
+  <div id="docdiv" style="display: none">
+     <a class="btn btn-success" href="{% url 'ViewDoctor'%}">View Doctor</a>
+  </div>
+</center>
+
+ <br>
+</div>
+<br>
+<br>
+
+   
+</div>
+<br>
+
+
+
+<script type="text/javascript">
+  
+  function validate()
+  {
+    if(document.getElementById('Pregnancies').value != '')
+    {
+      if(document.getElementById('Glucose').value != '')
+      {
+          if(document.getElementById('BloodPressure').value != '')
+          {
+              if(document.getElementById('SkinThickness').value != '')
+              {      
+                  if(document.getElementById('Insulin').value != '')
+                  {
+                      if(document.getElementById('BMI').value != '')
+                      {
+                          if(document.getElementById('Diabetespedigree').value != '')
+                          {
+                              if(document.getElementById('Age').value != '')
+                              {
+
+                                RecommFunction();
+                                return true;
+                              }
+                              else
+                              {
+                              alert("Please enter Age");
+                              return false;
+                              }
+                          }
+                          else
+                          {
+                          alert("Please enter Diabetes Pedigree");
+                          return false;
+                          }                             
+                      }
+                      else
+                      {
+                      alert("Please enter BMI");
+                      return false;
+                      }
+                  }
+                  else
+                  {
+                  alert("Please  enter Insulin");
+                  return false;
+                  }                                                   
+              }
+              else
+              {
+              alert("Please enter SkinThickness");
+              return false;
+              }
+          }
+          else
+          {
+          alert("Please enter BloodPressure");
+          return false;
+          }
+      }
+      else
+      {
+      alert("Please enter Glucose");
+      return false;
+      }
+    }
+    else
+    {
+    alert("Please  enter Pregnancies");
+    return false;
+    }
+      
+}
+
+
+
+function RecommFunction()
+  {
+      var Pregnancies = $('#Pregnancies').val();
+      var Glucose = $('#Glucose').val();         
+      var BloodPressure = $('#BloodPressure').val();
+      var SkinThickness = $('#SkinThickness').val();         
+      var Insulin = $('#Insulin').val();
+      var BMI = $('#BMI').val();         
+      var Diabetespedigree = $('#Diabetespedigree').val();
+      var Age = $('#Age').val();         
+      
+                      
+    
+
+      $.ajax({
+          type: "POST",
+              url: '{% url 'get_response_DiabetesTest' %}',
+              data: {
+
+                  'Pregnancies' : Pregnancies,
+                  'Glucose': Glucose,
+                  'BloodPressure': BloodPressure,
+                  'SkinThickness' : SkinThickness,
+                  'Insulin' : Insulin,
+                  'BMI' : BMI,
+                  'Diabetespedigree': Diabetespedigree,
+                  'Age' : Age,
+                  
+                  'csrfmiddlewaretoken': '{{ csrf_token }}',
+
+              },
+
+
+
+              //dataType: 'json',
+              success: function (data) {
+                document.getElementById('resultdiv').style.display="block";
+                document.getElementById('result').innerHTML = data["respond"];
+
+                if (document.getElementById('result').innerHTML == 'HIGH') 
+                {
+                  document.getElementById('result').style.color = "red";
+                  document.getElementById('docdiv').style.display="block";
+                } 
+                else if (document.getElementById('result').innerHTML == 'MEDIUM') 
+                {
+                  document.getElementById('result').style.color = "orange";
+                }
+                else if (document.getElementById('result').innerHTML == 'LOW') 
+                {
+                  document.getElementById('result').style.color = "green";
+                }
+
+                
+
+              }
+              })
+  }
+
+
+</script>
+{% endblock%}
+   

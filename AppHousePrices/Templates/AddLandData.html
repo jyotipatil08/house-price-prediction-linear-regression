@@ -1,0 +1,427 @@
+{% extends 'base.html'%}
+    {% block content%}
+
+    {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+
+
+<div style="background: url('/media/img/images/dhome.jpg');background-repeat:no-repeat;background-size: cover;color: white; height:800px;">
+<br>
+<br>
+<br>
+<div class="container" style="background-color: white;width: 60%;-webkit-box-shadow: 0 0 5px 5px #b5adad;-moz-box-shadow: 0 0 5px 5px #b5adad; box-shadow: 0 0 5px 5px #b5adad; " >
+<form class="form-horizontal" action='/AddLandData/'  method="POST" id="form1">
+  {% csrf_token %}
+  <center>
+  <div>
+    <h2 style="color: #449898">Add Land Data</h2>
+    <hr>
+    <br>
+  </div>
+  </center> 
+
+  <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Land Area:</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <input type="text" class="form-control" name="LandArea" id="LandArea" placeholder="Land Area" value="" required>
+    </div>
+  </div>
+
+  <br> <br>
+ <div class="form-row">
+    <div class="col-md-4 text-center "style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Land Type:</label>    
+    </div>
+ 
+    
+     <div class="col-md-8 "style="margin-bottom: 10px">
+        <select  class="form-control" name="LandType" id="LandType" >
+              <option value="Choose">Choose...</option>
+              <option value="0">Residential</option>
+              <option value="1">Agricultural</option>
+              <option value="2">Recreation</option>
+              <option value="3">Commercial</option>
+              <option value="4">Transportation</option>
+            
+            </select>  
+    </div>
+  </div>
+
+  <br> <br>
+   <div class="form-row">
+    <div class="col-md-4 text-center "style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Soil Fertility:</label>    
+    </div> 
+  <div class="col-md-8 "style="margin-bottom: 15px">
+         <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          <input type="radio" id="Fertility1" name="Fertility" value="5">&nbsp;
+          <label for="Fertility1"  style="color: black">Low</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <input type="radio" id="Fertility2" name="Fertility" value="3">&nbsp;
+          <label for="Fertility2"  style="color: black">Medium</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+  
+
+          <input type="radio" id="Fertility3" name="Fertility" value="7">&nbsp;
+          <label for="Fertility3"  style="color: black">High</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;  
+
+
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+  <div class="form-row">
+    <div class="col-md-4 text-center "style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Facing:</label>    
+    </div>
+ 
+    
+    <div class="col-md-8 "style="margin-bottom: 15px">
+         <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          <input type="radio" id="Facing1" name="Facing" value="5">&nbsp;
+          <label for="Facing"  style="color: black">East</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;
+
+          <input type="radio" id="Facing2" name="Facing" value="3">&nbsp;
+          <label for="Facing2"  style="color: black">West</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
+
+          <input type="radio" id="Facing3" name="Facing" value="7">&nbsp;
+          <label for="Facing3"  style="color: black">South</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+
+          <input type="radio" id="Facing4" name="Facing" value="1">&nbsp;
+          <label for="Facing4"  style="color: black">North</label>
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+<div class="form-row">
+    <div class="col-md-4 text-center "style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Open Sides:</label>    
+    </div>
+ 
+    
+    <div class="col-md-8 "style="margin-bottom: 15px">
+         <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          <input type="radio" id="Open1" name="Open" value="5">&nbsp;
+          <label for="Open1"  style="color: black">One</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;
+
+          <input type="radio" id="Open2" name="Open" value="3">&nbsp;
+          <label for="Open2"  style="color: black">Two</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  
+
+          <input type="radio" id="Open3" name="Open" value="7">&nbsp;
+          <label for="Open3"  style="color: black">Three</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+
+          <input type="radio" id="Open4" name="Open" value="1">&nbsp;
+          <label for="Open4"  style="color: black">Four</label>
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+<div class="form-row">
+    <div class="col-md-4 text-center "style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Condition:</label>    
+    </div>
+ 
+    
+    <div class="col-md-8 "style="margin-bottom: 15px">
+         <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          <input type="radio" id="Condition1" name="Condition" value="5">&nbsp;
+          <label for="Condition1"  style="color: black">Soil</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <input type="radio" id="Condition2" name="Condition" value="3">&nbsp;
+          <label for="Condition2"  style="color: black">Pasture</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+  
+
+          <input type="radio" id="Condition3" name="Condition" value="7">&nbsp;
+          <label for="Condition3"  style="color: black">WoodLand</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;  
+
+
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+  <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Water Availability:</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+         <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; <input type="radio" id="Availability1" name="Availability" value="1">&nbsp;
+          <label for="Availability1"  style="color: black">Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <input type="radio" id="Availability2" name="Availability" value="0">&nbsp;
+          <label for="Availability2"  style="color: black">No</label>&nbsp;&nbsp;&nbsp;&nbsp;      
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+
+<div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Boundary wall:</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+         <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; <input type="radio" id="Boundary_wall1" name="Boundary_wall" value="1">&nbsp;
+          <label for="Boundary_wall1"  style="color: black">Available</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; 
+
+          <input type="radio" id="Boundary_wall2" name="Boundary_wall" value="0">&nbsp;
+          <label for="Boundary_wall2"  style="color: black">Not Available</label>&nbsp;&nbsp;&nbsp;&nbsp;      
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+<div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Land Transaction:</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+         <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; <input type="radio" id="Transaction1" name="Transaction" value="1">&nbsp;
+          <label for="Transaction1"  style="color: black">New Property</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <input type="radio" id="Transaction2" name="Transaction" value="0">&nbsp;
+          <label for="Transaction2"  style="color: black">Resale</label>&nbsp;&nbsp;&nbsp;&nbsp;      
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+<div class="form-row">
+  <div class="col-md-4 text-center"style="margin-top: 5px">
+    <label style="color: black"  for="validationTooltip01">Location</label>
+  </div>
+   <div class="col-md-8 "style="margin-bottom: 10px">
+        <div> 
+          <select  class="form-control" name="Location" id="Location" >
+          <option value="Choose">Choose...</option>
+          <option value="1">Whitefield</option>
+          <option value="2">Malleswaram</option>
+          <option value="3">Indiranagar</option>
+          <option value="4">Banashankari</option>
+          <option value="5">K.R Puram</option>
+          <option value="6">Yelahanka</option>
+          <option value="7">Marathahalli</option>
+          <option value="8">Rajajinagar</option>
+          <option value="9">Frazer Town</option>
+          <option value="10">Kodigehalli</option>
+          <option value="11">Hebbal</option>
+          <option value="12">Sadashivanagar</option>
+          <option value="13">C V Ramana Nagar</option>
+          <option value="14">Dasarahalli</option>
+          <option value="15">J.P.Nagar</option>
+          <option value="16">Mahadevapura</option>
+          <option value="17">Benson Town</option>
+          <option value="18">Adugodi</option>
+          <option value="19">Chamarajpet</option>
+          <option value="20">Jakkur</option>
+          <option value="21">Domulur</option>
+          <option value="22">Bommanhalli</option>
+          <option value="23">Kengeri</option>
+        </select>   
+    </div>
+    </div>
+  </div>
+  <br> <br>
+
+
+<div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">StationDistance</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <div> 
+          <select  class="form-control" name="StationDistance" id="StationDistance" >
+          <option value="Choose">Choose...</option>
+          <option value="7">0 KM - 3 KM</option>
+          <option value="5">3 KM - 4 KM</option>
+          <option value="3">5 KM - 6 KM</option>
+          <option value="1">6 KM or more</option>
+        </select>   
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+<div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Road Facing:</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <input type="text" class="form-control" name="roadfacing" id="roadfacing" placeholder="Road facing Area" value="" required>
+    </div>
+  </div>
+
+  <br> <br>
+<div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Amount:</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <input type="text" class="form-control" name="price" id="price" placeholder="Amount..." value="" required>
+    </div>
+  </div>
+
+  <br> <br>
+ <center>
+
+    <div class="col-md-12">
+         <br>
+
+  <input type="Submit" class="btn btn-primary" name="" value="Add" onclick="validate()" >
+    <br>  <br>  <br>
+</div>
+</center>
+</div>
+
+
+</div>
+
+<script type="text/javascript">
+  
+  function validate()
+  {
+    if(document.getElementById('LandArea').value != '')
+    {
+        if(document.getElementById('LandType').value != 'Choose')
+        {
+            if(document.getElementById('Fertility1').checked  == true || document.getElementById('Fertility2').checked  == true || document.getElementById('Fertility3').checked  == true) 
+            {
+                if(document.getElementById('Facing1').checked  == true || document.getElementById('Facing2').checked  == true || document.getElementById('Facing3').checked  == true || document.getElementById('Facing4 ').checked  == true)
+                {
+                    if(document.getElementById('Open1').checked == true || document.getElementById('Open2').checked == true  || document.getElementById('Open3').checked == true  || document.getElementById('Open4').checked == true)
+                    {      
+                        if(document.getElementById('Condition1').checked  == true || document.getElementById('Condition2').checked  == true || document.getElementById('Condition3').checked  == true) 
+                        {
+                            if(document.getElementById('Availability1').checked ==true || document.getElementById('Availability2').checked ==true)
+                            {
+                                if(document.getElementById('Boundary_wall1').checked ==true || document.getElementById('Boundary_wall2').checked ==true)
+                                {
+                                    if(document.getElementById('Transaction1').checked == true || document.getElementById('Transaction2').checked == true)
+                                    {
+                                        if(document.getElementById('Location').value != 'Choose') 
+                                        {
+                                            if(document.getElementById('StationDistance').value != 'Choose') 
+                                            {
+                                                if(document.getElementById('roadfacing').value != '')
+                                                {
+                                                    if(document.getElementById('price').value != '')
+                                                    {
+
+                                                        document.getElementById('form1').submit()
+                                                        return true;
+
+                                                    }
+                                                    
+                                                    else
+                                                    {
+                                                        alert("Please enter Amount");
+                                                        return false;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    alert("Please enter Road facing");
+                                                    return false;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                alert("Please enter Station Distance");
+                                                return false;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            alert("Please enter Station Location");
+                                            return false;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        alert("Please enter Transaction");
+                                        return false;
+                                    }
+                                }
+                                else
+                                {
+                                    alert("Please enter Boundary wall");
+                                    return false;
+                                }                             
+                            }
+                            else
+                            {
+                                alert("Please enter Water Availability");
+                                return false;
+                            }
+                        }
+                        else
+                        {
+                            alert("Please enter Condition");
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        alert("Please enter Open");
+                        return false;
+                    }
+                }
+                else
+                {
+                    alert("Please enter Facing");
+                    return false;
+                }
+            }
+            else
+            {
+                alert("Please enter Soil Fertility");
+                return false;
+            }                             
+        }
+        else
+        {
+            alert("Please enter Land Type");
+            return false;
+        }                             
+    }
+    else
+    {
+        alert("Please enter Land Area");
+        return false;
+    }
+}
+</script>
+
+
+
+{% endblock%}
+   

@@ -1,0 +1,460 @@
+ {% extends 'base.html'%}
+    {% block content%}
+    {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+
+<div style="background: url('/media/img/images/dhome.jpg'); background-repeat:no-repeat;background-size:cover; color: white; ">
+	
+<br>
+<br>
+<br>
+<div class="container" style="background-color: white;width: 70%;" >
+<form class="form-horizontal" action='/AddLocation/'  method="POST" id="form1">
+  {% csrf_token %}
+  <center>
+  <div>
+    <h2 style="color: #449898">Add Location</h2>
+    <hr>
+  </div>
+  </center> 
+
+  <div class="form-row">
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black"  for="validationTooltip01">Building Name</label>
+      <input type="text" class="form-control" name="Name" id="Name" placeholder="ie. Oberoi Towers" value="" required>
+      
+    </div>
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black"  for="validationTooltip02">Bedroomes</label>
+      <input type="text" class="form-control" name="Bedroomes" id="Bedroomes"  placeholder="ie. 1bhk/2bhk" value="" required>
+      
+    </div>
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltipUsername">Builtup Area</label>
+      <input type="text" class="form-control" name="BuiltupArea" id="BuiltupArea" placeholder="ie. 445 sqft" value="" required>
+
+    </div>
+  </div>
+
+ 
+  <div class="form-row">
+    <div class="col-md-4"style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip03">Possession</label>
+      <input type="text" class="form-control" name="Possession" id="Possession" placeholder="ie. Immediate" required>
+      
+    </div>
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip04">Furnishing Status</label>
+      <select name="Furnished" id="Furnished" class="form-control">
+        <option selected>Choose...</option>
+        <option>Not Furnished</option>
+        <option>Furnished</option>
+      </select>
+    
+      
+    </div>
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip05">Parking Available</label>
+      <select name="Parking" id="Parking" class="form-control">
+        <option selected>Choose...</option>
+        <option>Not Available</option>
+        <option>Cars and bikes</option>
+        <option>Only Cars</option>
+        <option>Only Bikes</option>
+      </select>
+      
+    </div>
+  </div> 
+
+  <div class="form-row">
+    <div class="col-md-4"style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip03">Flooring</label>
+      <input type="text" class="form-control" name="Flooring" id="Flooring" placeholder="ie. Wooden/Marble" required>
+      
+    </div>
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip04">Facing</label>
+      <select name="Facing" id="Facing" class="form-control">
+        <option selected>Choose...</option>
+        <option>East</option>
+        <option>West</option>
+        <option>North</option>
+        <option>South</option>
+      </select>
+      
+    </div>
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip05">Water Supply</label>
+      <input type="text" class="form-control" name="WaterTiming" id="WaterTiming"  placeholder="WaterTiming" required>
+      
+    </div>
+  </div>
+
+
+  <div class="form-row">
+    <div class="col-md-4"style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip03">SWIMMING POOL</label>
+      <select name="Swimmingpool" id="Swimmingpool" class="form-control">
+        <option selected>Choose...</option>
+        <option>Not Available</option>
+        <option>Available</option>
+      </select>
+      
+    </div>
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip04">SECURITY</label>
+      <select name="Security" id="Security" class="form-control">
+        <option selected>Choose...</option>
+        <option>Not Available</option>
+        <option>Available</option>
+      </select>
+      
+    </div>
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip05">CLUB HOUSE</label>
+      <select name="Club" id="Club" class="form-control">
+        <option selected>Choose...</option>
+        <option>Not Available</option>
+        <option>Available</option>
+      </select>
+      
+    </div>
+  </div>
+
+
+  <div class="form-row">
+    <div class="col-md-4"style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip03">PLAY AREA </label>
+      <select name="Playarea" id="Playarea" class="form-control">
+        <option selected>Choose...</option>
+        <option>Not Available</option>
+        <option>Available</option>
+      </select>
+      
+    </div>
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip04">FIRE SAFETY</label>
+       <select name="Fire" id="Fire" class="form-control">
+        <option selected>Choose...</option>
+        <option>Not Available</option>
+        <option>Available</option>
+      </select>
+      
+
+    </div> 
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip05">GAS PIPELINE</label>
+      <select name="Gas" id="Gas" class="form-control">
+        <option selected>Choose...</option>
+        <option>Not Available</option>
+        <option>Available</option>
+      </select>
+      
+    </div>
+  </div>
+
+
+  <div class="form-row">
+    <div class="col-md-4"style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip03">LIFT </label>
+       <select name="Lift" id="Lift" class="form-control">
+        <option selected>Choose...</option>
+        <option>Not Available</option>
+        <option>Available</option>
+      </select>
+      
+    </div>
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip04">Nearest Railway station</label>
+      <input type="text" class="form-control" name="Railwaystation" id="Railwaystation"  placeholder="ie. Mumbai Central" required>
+      
+    </div>
+    <div class="col-md-4 "style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip05">Station Distance</label>
+      <input type="text" class="form-control" name="StationDistance" id="StationDistance"  placeholder="ie. 1km" required>
+      
+    </div>
+  </div>
+
+  <div class="col-md-12" style="margin-bottom: 10px">
+      <label style="color: black" for="inputEmail4">Addesss</label>
+      <textarea class="form-control" name="Addesss" id="Addesss" rows="3"  placeholder="ie. Addesss of the Apartment"></textarea>
+
+  </div>
+
+
+  <div class="form-row">
+    <div class="col-md-6"style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip03">City </label>
+      <input type="text" class="form-control" name="City" id="City" placeholder="City" required>
+      
+    </div>
+    <div class="col-md-6 "style="margin-bottom: 10px">
+      <label style="color: black" for="validationTooltip04">State</label>
+       <input type="text" class="form-control" name="State" id="State" placeholder="State" required>
+      
+    </div>
+  </div>
+
+  <div class="col-md-12" style="margin-bottom: 10px">
+      <label style="color: black" for="inputEmail4">Description</label>
+      <textarea class="form-control" name="Description" id="Description" rows="3"  placeholder="ie. Details about the Apartment"></textarea>
+
+  </div>
+ 
+  <div class=" col-md-12" style="margin-bottom: 10px">
+    <label style="color: black" for="inputAddress">PropertyValue</label>
+    <input type="text" class="form-control" name="PropertyValue" id="PropertyValue" placeholder="ie. 19 lacs">
+  </div>
+
+
+
+  <center>
+
+    <div class="col-md-12">
+         <br>
+         <input type="button" onclick="validate();" name="ButtonApply" value="Submit &#8250;&#8250;"  id="ButtonApply" class="btn btn-round btn-primary" />
+    <br>  <br>  <br>
+</div>
+</center>
+
+
+  </center>
+  <br>
+</form>
+ <br>
+</div>
+<br>
+<br>
+
+</div>
+<br>
+<script type="text/javascript">
+
+
+
+function validate()
+{
+
+  if(document.getElementById('Name').value != '')
+  {
+
+      if(document.getElementById('Bedroomes').value != '')
+      {
+          if(document.getElementById('BuiltupArea').value != '')
+          {
+
+              if(document.getElementById('Possession').value != '')
+              {
+
+                  if(document.getElementById('Furnished').value != '' &&  document.getElementById('Furnished').value != 'Choose...')
+                  {
+                      if(document.getElementById('Parking').value != '' &&  document.getElementById('Parking').value != 'Choose...')
+                      {
+                          if(document.getElementById('Flooring').value != '')
+                          {
+
+                              if(document.getElementById('Facing').value != '' &&  document.getElementById('Facing').value != 'Choose...')
+                              {
+                                  if(document.getElementById('WaterTiming').value != '')
+                                  {
+
+                                      if(document.getElementById('Swimmingpool').value != '' &&  document.getElementById('Swimmingpool').value != 'Choose...')
+                                      {
+
+                                          if(document.getElementById('Security').value != '' &&  document.getElementById('Security').value != 'Choose...')
+                                          {
+
+                                              if(document.getElementById('Club').value != '' &&  document.getElementById('Club').value != 'Choose...')
+                                              {
+
+                                                  if(document.getElementById('Playarea').value != '' &&  document.getElementById('Playarea').value != 'Choose...')
+                                                  {
+                                                    if(document.getElementById('Fire').value != '' &&  document.getElementById('Fire').value != 'Choose...')
+                                                    {
+
+                                                      if(document.getElementById('Gas').value != '' &&  document.getElementById('Gas').value != 'Choose...')
+                                                      {
+
+                                                          if(document.getElementById('Lift').value != '' &&  document.getElementById('Lift').value != 'Choose...')
+                                                          {
+                                                              if(document.getElementById('Railwaystation').value != '')
+                                                              {
+                                                                  if(document.getElementById('StationDistance').value != '')
+                                                                  {
+
+                                                                      if(document.getElementById('City').value != '')
+                                                                      {
+                                                                          if(document.getElementById('State').value != '')
+                                                                          {
+
+                                                                              if(document.getElementById('Description').value != '')
+                                                                              {
+
+                                                                                  if(document.getElementById('PropertyValue').value != '')
+                                                                                  {
+
+                                                                                      if(document.getElementById('Addesss').value != '')
+                                                                                      {
+
+                                                                                      document.getElementById('form1').submit()
+                                                                                      return true;                                       
+
+                                                                                      }
+                                                                                      else
+                                                                                      {
+                                                                                      alert("Please enter Address");
+                                                                                      return false;
+                                                                                  }                                       
+
+                                                                                  }
+                                                                                  else
+                                                                                  {
+                                                                                  alert("Please enter PropertyValue");
+                                                                                  return false;
+                                                                                  }                             
+                                                                              }
+                                                                              else
+                                                                              {
+                                                                              alert("Please enter  Description ");
+                                                                              return false;
+                                                                              }
+                                                                          }
+                                                                          else
+                                                                          {
+                                                                          alert("Please  enter State");
+                                                                          return false;
+                                                                          }
+                                                                      }     
+                                                                      else
+                                                                      {
+                                                                      alert("Please Enter City ");
+                                                                      return false;
+                                                                      }                           
+                                                                  }
+                                                                  else
+                                                                  {
+                                                                  alert("Please enter StationDistance ");
+                                                                  return false;
+                                                                  }
+                                                              }
+                                                              else
+                                                              {
+                                                              alert("Please enter  Railwaystation ");
+                                                              return false;
+                                                              }
+
+                                                          }
+                                                          else
+                                                          {
+                                                          alert("Please enter Lift");
+                                                          return false;
+                                                          }
+
+                                                      }
+                                                      else
+                                                      {
+                                                      alert("Please enter Gas ");
+                                                      return false;
+                                                      }
+
+                                                    }
+                                                    else
+                                                    {
+                                                    alert("Please  enter Fire");
+                                                    return false;
+                                                    }
+                                                  }     
+                                                  else
+                                                  {
+                                                  alert("Please Enter the Playarea");
+                                                  return false;
+                                                  }                
+                                              }
+                                              else
+                                              {
+                                              alert("Please enter Club");
+                                              return false;
+                                              }			                             
+
+                                          }
+                                          else
+                                          {
+                                          alert("Please enter  Security");
+                                          return false;
+                                          }						                  
+                                      }
+                                      else
+                                      {
+                                      alert("Please enter Swimmingpool");
+                                      return false;
+                                      }
+                                  }
+                                  else
+                                  {
+                                  alert("Please  enter WaterTiming");
+                                  return false;
+                                  }
+                              }     
+                              else
+                              {
+                              alert("Please Enter Facing");
+                              return false;
+                              }						                
+                          }
+                          else
+                          {
+                          alert("Please enter Flooring");
+                          return false;
+                          }
+                      }
+                      else
+                      {
+                      alert("Please enter  Parking");
+                      return false;
+                      }
+
+                  }
+                  else
+                  {
+                  alert("Please enter Furnished");
+                  return false;
+                  }
+
+              }
+              else
+              {
+              alert("Please enter Possession");
+              return false;
+              }
+
+          }
+          else
+          {
+          alert("Please  enter BuiltupArea");
+          return false;
+          }
+      }     
+      else
+      {
+      alert("Please Enter the Bedroomes");
+      return false;
+      }                
+  }
+  else
+  {
+  alert("Please enter Name");
+  return false;
+  }
+
+}
+
+</script>
+    {% endblock%}
+
+

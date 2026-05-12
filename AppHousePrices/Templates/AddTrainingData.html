@@ -1,0 +1,545 @@
+ {% extends 'base.html'%}
+    {% block content%}
+
+    {% if messages %}
+        {% for message in messages %}
+         {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+        {% endfor %}
+
+    {% endif %}
+
+
+<div style="background: url('/media/img/images/dhome.jpg');background-repeat:no-repeat;background-size: cover;color: white;">
+<br>
+<br>
+<br>
+<div class="container" style="background-color: white;width: 60%;-webkit-box-shadow: 0 0 5px 5px #b5adad;-moz-box-shadow: 0 0 5px 5px #b5adad; box-shadow: 0 0 5px 5px #b5adad; " >
+<form class="form-horizontal" action='/AddTrainingData/'  method="POST" id="form1">
+  {% csrf_token %}
+  <center>
+  <div>
+    <h2 style="color: #449898">Add Training Data</h2>
+    <hr>
+    <br>
+  </div>
+  </center> 
+
+  
+
+
+  <div class="form-row">
+    <div class="col-md-4 text-center "style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Bedrooms</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <select  class="form-control" name="Bedroomes" id="Bedroomes" >
+              <option value="Choose">Choose...</option>
+              <option value="0">RK</option>
+              <option value="1">1 BHK</option>
+              <option value="2">2 BHK</option>
+              <option value="3">3 BHK</option>
+              <option value="4">4 BHK</option>
+              <option value="5">5 BHK</option>
+              <option value="6">6 BHK</option>
+            </select>  
+    </div>
+  </div>
+
+  <br> <br> 
+
+  <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">BuiltupArea</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <input type="text" class="form-control" name="BuiltupArea" id="BuiltupArea" placeholder="BuiltupArea" value="" required>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+ <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Furnished</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; <input type="radio" id="Furnished1" name="Furnished" value="1">&nbsp;
+          <label for="Smoke1"  style="color: black">Furnished</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+
+          <input type="radio" id="Furnished2" name="Furnished" value="0">&nbsp;
+          <label for="Furnished2"  style="color: black">Not Furnished</label>&nbsp;&nbsp;&nbsp;&nbsp;     
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+
+ <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Parking</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 15px">
+         <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          <input type="radio" id="Parking1" name="Parking" value="5">&nbsp;
+          <label for="Parking1"  style="color: black">Cars</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;
+
+          <input type="radio" id="Parking2" name="Parking" value="3">&nbsp;
+          <label for="Parking2"  style="color: black">Bike</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
+
+          <input type="radio" id="Parking3" name="Parking" value="7">&nbsp;
+          <label for="Parking3"  style="color: black">Both</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+
+          <input type="radio" id="Parking4" name="Parking" value="1">&nbsp;
+          <label for="Parking4"  style="color: black">Not Available</label>
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+
+ <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">WaterTiming</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <div>
+
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          <input type="radio" id="WaterTiming1" name="WaterTiming" value="7">&nbsp;
+          <label for="WaterTiming1"  style="color: black">24 hrs</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;
+
+          <input type="radio" id="WaterTiming2" name="WaterTiming" value="5">&nbsp;
+          <label for="WaterTiming2"  style="color: black">12 hrs</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  
+
+          <input type="radio" id="WaterTiming3" name="WaterTiming" value="3">&nbsp;
+          <label for="WaterTiming3"  style="color: black">6 hrs</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+
+          <input type="radio" id="WaterTiming4" name="WaterTiming" value="1">&nbsp;
+          <label for="WaterTiming4"  style="color: black">3 hrs</label>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+
+ <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Swimmingpool</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+         <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; <input type="radio" id="Swimmingpool1" name="Swimmingpool" value="1">&nbsp;
+          <label for="Swimmingpool1"  style="color: black">Available</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  
+
+          <input type="radio" id="Swimmingpool2" name="Swimmingpool" value="0">&nbsp;
+          <label for="Swimmingpool2"  style="color: black">Not Available</label>&nbsp;&nbsp;&nbsp;&nbsp;      
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+ <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Security</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; <input type="radio" id="Security1" name="Security" value="1">&nbsp;
+          <label for="Security1"  style="color: black">Available</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+
+          <input type="radio" id="Security2" name="Security" value="0">&nbsp;
+          <label for="Security2"  style="color: black">Not Available</label>&nbsp;&nbsp;&nbsp;&nbsp;      
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+
+ <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">ClubHouse</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+         <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; <input type="radio" id="Club1" name="Club" value="1">&nbsp;
+          <label for="Club1"  style="color: black">Available</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+          <input type="radio" id="Club2" name="Club" value="0">&nbsp;
+          <label for="Club2"  style="color: black">Not Available</label>&nbsp;&nbsp;&nbsp;&nbsp;      
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+
+ <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Playarea</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; <input type="radio" id="Playarea1" name="Playarea" value="1">&nbsp;
+          <label for="Playarea1"  style="color: black">Available</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+
+          <input type="radio" id="Playarea2" name="Playarea" value="0">&nbsp;
+          <label for="Playarea1"  style="color: black">Not Available</label>&nbsp;&nbsp;&nbsp;&nbsp;      
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+
+ <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Fire</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; <input type="radio" id="Fire1" name="Fire" value="1">&nbsp;
+          <label for="Fire1"  style="color: black">Available</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+
+          <input type="radio" id="Fire2" name="Fire" value="0">&nbsp;
+          <label for="Fire2"  style="color: black">Not Available</label>&nbsp;&nbsp;&nbsp;&nbsp;      
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+
+ <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Gas Pipeline</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; <input type="radio" id="Gas1" name="Gas" value="1">&nbsp;
+          <label for="Gas1"  style="color: black">Available</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+
+          <input type="radio" id="Gas2" name="Gas" value="0">&nbsp;
+          <label for="Gas2"  style="color: black">Not Available</label>&nbsp;&nbsp;&nbsp;&nbsp;     
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+
+ <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Lift</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; <input type="radio" id="Lift1" name="Lift" value="1">&nbsp;
+          <label for="Lift1"  style="color: black">Available</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;  
+
+          <input type="radio" id="Lift2" name="Lift" value="0">&nbsp;
+          <label for="Lift2"  style="color: black">Not Available</label>&nbsp;&nbsp;&nbsp;&nbsp;      
+    </div>
+    </div>
+  </div>
+<br> <br>
+<div class="form-row">
+  <div class="col-md-4 text-center"style="margin-top: 5px">
+    <label style="color: black"  for="validationTooltip01">Location</label>
+  </div>
+   <div class="col-md-8 "style="margin-bottom: 10px">
+        <div> 
+          <select  class="form-control" name="Location" id="Location" >
+          <option value="Choose">Choose...</option>
+          <option value="1">Whitefield</option>
+          <option value="2">Malleswaram</option>
+          <option value="3">Indiranagar</option>
+          <option value="4">Banashankari</option>
+          <option value="5">K.R Puram</option>
+          <option value="6">Yelahanka</option>
+          <option value="7">Marathahalli</option>
+          <option value="8">Rajajinagar</option>
+          <option value="9">Frazer Town</option>
+          <option value="10">Kodigehalli</option>
+          <option value="11">Hebbal</option>
+          <option value="12">Sadashivanagar</option>
+          <option value="13">C V Ramana Nagar</option>
+          <option value="14">Dasarahalli</option>
+          <option value="15">J.P.Nagar</option>
+          <option value="16">Mahadevapura</option>
+          <option value="17">Benson Town</option>
+          <option value="18">Adugodi</option>
+          <option value="19">Chamarajpet</option>
+          <option value="20">Jakkur</option>
+          <option value="21">Domulur</option>
+          <option value="22">Bommanhalli</option>
+          <option value="23">Kengeri</option>
+        </select>   
+    </div>
+    </div>
+  </div>
+  <br> <br>
+ 
+
+   <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">StationDistance</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+        <div> 
+          <select  class="form-control" name="StationDistance" id="StationDistance" >
+          <option value="Choose">Choose...</option>
+          <option value="7">0 KM - 3 KM</option>
+          <option value="5">3 KM - 4 KM</option>
+          <option value="3">5 KM - 6 KM</option>
+          <option value="1">6 KM or more</option>
+        </select>   
+    </div>
+    </div>
+  </div>
+
+  <br> <br>
+
+
+
+  <div class="form-row">
+      <div class="col-md-4 text-center"style="margin-top: 5px">
+        <label style="color: black"  for="validationTooltip01">SchoolDistance</label>    
+      </div>
+   
+      <div class="col-md-8 "style="margin-bottom: 10px">
+          <div>
+            <select  class="form-control" name="SchoolDistance" id="SchoolDistance" >
+              <option value="Choose">Choose...</option>
+              <option value="7">0 KM - 3 KM</option>
+              <option value="5">3 KM - 4 KM</option>
+              <option value="3">5 KM - 6 KM</option>
+              <option value="1">6 KM or more</option>
+            </select>  
+      </div>
+      </div>
+    </div>
+
+    <br> <br>
+
+
+
+   <div class="form-row">
+    <div class="col-md-4 text-center"style="margin-top: 5px">
+      <label style="color: black"  for="validationTooltip01">Amount</label>    
+    </div>
+ 
+    <div class="col-md-8 "style="margin-bottom: 10px">
+         <input type="text" class="form-control" name="Result" id="Result" placeholder="Amount" value="" required>  
+    </div>
+  </div>
+
+  <br> <br>
+
+  <center>
+
+    <div class="col-md-12">
+         <br>
+
+  <input type="button" class="btn btn-primary" name="" value="Add" onclick="validate()">
+    <br>  <br>  <br>
+</div>
+</center>
+
+
+  </center>
+  <br>
+</form>
+ <br>
+</div>
+<br>
+<br>
+
+
+</div>
+<br> 
+
+<script type="text/javascript">
+  
+  function validate()
+   {
+
+      if(document.getElementById('Bedroomes').value != 'Choose')
+    {
+      if(document.getElementById('BuiltupArea').value != '')
+      {
+          if(document.getElementById('Furnished1').checked == true || document.getElementById('Furnished2').checked == true)
+          {
+              if(document.getElementById('Parking1').checked == true || document.getElementById('Parking2').checked == true  || document.getElementById('Parking3').checked == true  || document.getElementById('Parking4').checked == true)
+              {      
+                  if(document.getElementById('WaterTiming1').checked  == true || document.getElementById('WaterTiming2').checked  == true || document.getElementById('WaterTiming3').checked  == true || document.getElementById('WaterTiming4').checked  == true)
+                  {
+                      if(document.getElementById('Swimmingpool1').checked ==true || document.getElementById('Swimmingpool2').checked ==true)
+                      {
+                          if(document.getElementById('Security1').checked == true || document.getElementById('Security2').checked == true)
+                          {
+                              if(document.getElementById('Club1').checked == true || document.getElementById('Club2').checked)
+                              {
+                                  if(document.getElementById('Playarea1').checked == true ||document.getElementById('Playarea2').checked == true)
+                                  {
+                                      if(document.getElementById('Fire1').checked == true || document.getElementById('Fire2').checked == true)
+                                      {
+                                        if(document.getElementById('Gas1').checked == true || document.getElementById('Gas2').checked == true)
+                                        {
+                                          if(document.getElementById('Lift1').checked == true || document.getElementById('Lift2').checked == true)
+                                          {
+                                            if(document.getElementById('Location').value != 'Choose')
+                                            {
+                                                    
+                                      
+                                              if(document.getElementById('StationDistance').value != 'Choose')
+                                                {
+                                                    
+                                                 if(document.getElementById('SchoolDistance').value != 'Choose')
+                                                  {
+                                                                                                                      
+                                                   if(document.getElementById('Result').value != '')
+                                                    {
+                                                        
+                                                      document.getElementById('form1').submit()
+                                                      return true;
+                                                    }
+                                                    else
+                                                    {
+                                                        alert("Please enter Result");
+                                                        return false;
+                                                    }
+                                                       
+                                                  }
+                                                  else
+                                                  {
+                                                      alert("Please enter SchoolDistance");
+                                                      return false;
+                                                  }
+                                                }
+                                                else
+                                                {
+                                                    alert("Please enter StationDistance");
+                                                    return false;
+                                                }
+                                          }
+                                          else
+                                                  {
+                                                      alert("Please enter location");
+                                                      return false;
+                                                  }
+                                                }
+                                          else
+                                          {
+                                              alert("Please enter Lift1");
+                                              return false;
+                                          }
+                                        }
+                                        else
+                                        {
+                                        alert("Please enter Gas1");
+                                        return false;
+                                        }                             
+                                      }
+                                      else
+                                      {
+                                      alert("Please enter Fire1");
+                                      return false;
+                                      }
+                                  }
+                                  else
+                                  {
+                                  alert("Please  enter Playarea1");
+                                  return false;
+                                  }
+                              }
+                              else
+                              {
+                              alert("Please enter Club1");
+                              return false;
+                              }
+                          }
+                          else
+                          {
+                          alert("Please enter Security1");
+                          return false;
+                          }                             
+                      }
+                      else
+                      {
+                      alert("Please enter Swimmingpool1");
+                      return false;
+                      }
+                  }
+                  else
+                  {
+                  alert("Please  enter WaterTiming1");
+                  return false;
+                  }                                                   
+              }
+              else
+              {
+              alert("Please enter Parking1");
+              return false;
+              }
+          }
+          else
+          {
+          alert("Please enter Furnished1");
+          return false;
+          }
+      }
+      else
+      {
+      alert("Please enter BuiltupArea");
+      return false;
+      }
+    }
+    else
+    {
+    alert("Please  enter Bedroomes");
+    return false;
+    }
+
+     
+}
+
+</script>
+
+
+{% endblock%}
+   
